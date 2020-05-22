@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">SignUp</string>
+    <string name="selected_age">Selected age:</string>
+    <string name="digital_marketing">Digital Marketing</string>
+    <string name="accountant">Accountant</string>
+    <string name="designer">Designer</string>
+    <string name="development">Development</string>
+
+    <string name="lable_first_name">Enter your first name</string>
+    <string name="lable_last_name">Enter your last name</string>
+    <string name="lable_email_address">Enter your email address</string>
+    <string name="lable_password">Enter your password</string>
+    <string name="lable_age">Select age :</string>
+    <string name="lable_profession">Profession</string>
+    <string name="lable_seo">SEO</string>
+    <string name="radio_business_analyst">Business Analyst</string>
+    <string name="lable_btn_register">Register</string>
+    <string name="lable_btn_login">Login</string>
+    <string name="lable_forgot_password">Forgot password!</string>
+    <string name="lable_dob">Enter date of birth :</string>
+    <string-array name="AgeList">
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+    </string-array>
+</resources>

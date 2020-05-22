@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/application_background"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@mipmap/ic_account" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_fname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/banner"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edit_fname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@id/text_fname"
+                    android:hint="@string/lable_first_name"
+                    android:singleLine="true"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_lname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_fname"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edit_lname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@id/text_lname"
+                    android:hint="@string/lable_last_name"
+                    android:singleLine="true"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_lname"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@id/text_email"
+                    android:hint="@string/lable_email_address"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_email"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:endIconMode="password_toggle">
+
+                <EditText
+                    android:id="@+id/edit_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@id/text_pass"
+                    android:hint="@string/lable_password"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_pass"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lable_dob"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/date"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="DD/MM/YYYY"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_date"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:singleLine="true"
+                    android:text="@string/lable_age"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/profession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/age"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/prof"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/lable_profession"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="radioButtonClick"
+                        android:singleLine="true"
+                        android:text="@string/lable_seo"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="radioButtonClick"
+                        android:singleLine="true"
+                        android:text="@string/radio_business_analyst"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/expert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profession"
+                android:layout_margin="5dp">
+
+                <CheckBox
+                    android:id="@+id/check_check1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/digital_marketing"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/check_check2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_toEndOf="@id/check_check1"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/development"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/check_check3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/check_check1"
+                    android:layout_margin="5dp"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/accountant"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/check_check4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/check_check2"
+                    android:layout_margin="5dp"
+                    android:layout_toEndOf="@id/check_check3"
+                    android:onClick="checkBoxClicked"
+                    android:text="@string/designer"
+                    android:textColor="#141414"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/expert"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:onClick="onRegister"
+                    android:singleLine="true"
+                    android:text="@string/lable_btn_register"
+                    android:textColor="#141414" />
+
+                <Button
+                    android:id="@+id/btnRegister_login"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/lable_btn_login"
+                    android:textColor="#141414" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
