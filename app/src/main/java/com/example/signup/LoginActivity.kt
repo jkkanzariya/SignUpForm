@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
             val alertBuilder = AlertDialog.Builder(this)
             alertBuilder.setMessage("Your login is successful!").setPositiveButton(
                 "OK",
-                DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
+                DialogInterface.OnClickListener { dialog, which -> dialog.cancel() }) 
             val alert = alertBuilder.create()
             alert.show()
         }
