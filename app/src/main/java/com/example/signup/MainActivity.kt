@@ -120,6 +120,8 @@ class MainActivity : AppCompatActivity() {
     private fun fillAge() {
         val agelist = resources.getStringArray(R.array.AgeList)
         val spinnerRunTime = Spinner(this)
+//        val v:View=spinnerRunTime.selectedView
+
         spinnerRunTime.layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -128,10 +130,8 @@ class MainActivity : AppCompatActivity() {
         val linearLayout = findViewById<LinearLayout>(R.id.age)
         linearLayout.addView(spinnerRunTime)
 
-        if (spinnerRunTime != null) {
-            val fill_age = ArrayAdapter(this, android.R.layout.simple_spinner_item, agelist)
-            spinnerRunTime!!.adapter = fill_age
-        }
+        val fill_age = ArrayAdapter(this, android.R.layout.simple_spinner_item, agelist)
+        spinnerRunTime.adapter = fill_age
     }
 
     fun radioButtonClick(view: View) {
@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkBoxClicked(view: View) {
-        var checked = view as CheckBox
+        val checked = view as CheckBox
         if (check_check1 == checked) {
             message(check_check1?.text.toString() + if (check_check1?.isChecked!!) " Checked " else " UnChecked ")
         }
