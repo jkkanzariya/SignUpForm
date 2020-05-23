@@ -120,7 +120,6 @@ class MainActivity : AppCompatActivity() {
     private fun fillAge() {
         val agelist = resources.getStringArray(R.array.AgeList)
         val spinnerRunTime = Spinner(this)
-//        val v:View=spinnerRunTime.selectedView
 
         spinnerRunTime.layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
