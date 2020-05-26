@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/application_background"
-    android:theme="@style/AppTheme"
-    tools:context=".LoginActivity">
+    style="@style/AppTheme"
+    tools:context=".ForgotPass">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_login_email"
+        android:id="@+id/text_email_forgot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -19,31 +19,50 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/edit_login_email"
+            android:id="@+id/edit_email_forgot"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:inputType="textEmailAddress"
-            android:singleLine="true"
+            android:inputType="none"
             android:textColor="#141414"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_login_password"
+        android:id="@+id/text_pass_first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_login_email"
+        android:layout_below="@id/text_email_forgot"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="30dp"
-        android:hint="@string/lable_password"
+        android:hint="Enter new password"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/edit_login_pass"
+            android:id="@+id/edit_pass_first"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_toEndOf="@id/text_pass"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="#141414"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_pass_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_pass_first"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="30dp"
+        android:hint="Re-enter password"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_pass_second"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:inputType="textPassword"
             android:singleLine="true"
             android:textColor="#141414"
@@ -54,27 +73,19 @@
         android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_login_password"
+        android:gravity="center|bottom"
+        android:layout_below="@id/text_pass_second"
         android:layout_margin="5dp"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/login_login"
+            android:id="@+id/login_forgot"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:onClick="btnForgot"
             android:text="@string/lable_btn_login"
             android:textColor="#141414" />
-
-        <Button
-            android:id="@+id/forgot_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20sp"
-            android:text="@string/lable_forgot_password"
-            android:textColor="#C83B3B" />
     </LinearLayout>
 </RelativeLayout>

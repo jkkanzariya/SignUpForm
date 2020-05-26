@@ -82,6 +82,16 @@ class MainActivity : AppCompatActivity() {
         check_check4 = findViewById<CheckBox>(R.id.check_check4)
     }
 
+    private fun validationFname(): Boolean {
+        if (edit_fname?.text.toString().trim { it <= ' ' }.isEmpty()) {
+            edit_fname?.setError("First name can't be empty.")
+            return false
+        } else {
+            text_fname!!.isErrorEnabled = false
+        }
+        return true
+    }
+
     private fun validationLname(): Boolean {
         if (edit_lname?.text.toString().trim { it <= ' ' }.isEmpty()) {
             edit_lname?.setError("Last name can't be empty.")
@@ -120,6 +130,7 @@ class MainActivity : AppCompatActivity() {
     private fun fillAge() {
         val agelist = resources.getStringArray(R.array.AgeList)
         val spinnerRunTime = Spinner(this)
+        //        val v:View=spinnerRunTime.selectedView
 
         spinnerRunTime.layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -135,10 +146,7 @@ class MainActivity : AppCompatActivity() {
 
     fun radioButtonClick(view: View) {
         val radio: RadioButton? = radio_group?.checkedRadioButtonId?.let { findViewById(it) }
-        Toast.makeText(
-            applicationContext, "${radio?.text}",
-            Toast.LENGTH_SHORT
-        ).show()
+        toast("${radio?.text}")
     }
 
     fun checkBoxClicked(view: View) {
@@ -158,36 +166,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun message(controlID: String) {
-        Toast.makeText(this, controlID, Toast.LENGTH_SHORT).show()
+        toast(controlID)
     }
 
     private fun validateCheckBox(): Boolean {
         if (!(check_check1?.isChecked!! || check_check2?.isChecked!! || check_check3?.isChecked!! || check_check4?.isChecked!!)) {
-            Toast.makeText(this, "Select atleast one check box ", Toast.LENGTH_SHORT).show()
+            toast("Select atleast one check box ")
             return false
         }
         return true
     }
 
-    private fun validationFname(): Boolean {
-        if (edit_fname?.text.toString().trim { it <= ' ' }.isEmpty()) {
-            edit_fname?.setError("First name can't be empty.")
-            return false
-        } else {
-            text_fname!!.isErrorEnabled = false
-        }
-        return true
-    }
-
-    fun onLogin() {
+    private fun onLogin() {
         btnRegister_login?.setOnClickListener() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
 
-    fun onDOB() {
-        date?.setOnClickListener {
+    private fun onDOB() {
             val dateListenerDialog = object : DatePickerDialog.OnDateSetListener {
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
                     calendar.set(Calendar.YEAR, year)
@@ -208,7 +205,6 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
-    }
 
     private fun updateDateInView() {
         val dateFormat = "dd/MM/yyyy"
