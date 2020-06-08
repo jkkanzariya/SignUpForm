@@ -1,16 +1,14 @@
 package com.example.signup
 
 import android.content.DialogInterface
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        forgotPassword()
+
         edit_login_email = findViewById<EditText>(R.id.edit_login_email)
         edit_login_pass = findViewById<EditText>(R.id.edit_login_pass)
         login_login = findViewById<Button>(R.id.login_login)
@@ -48,9 +46,16 @@ class LoginActivity : AppCompatActivity() {
         }
 
         forgot_pass?.setOnClickListener {
-            val intent=Intent(this,ForgotPass::class.java)
+            val bundle=Bundle()
+            val myForgotPassword=MyFragment()
+            bundle.putString("email", edit_login_email?.text.toString())
+            myForgotPassword.arguments=bundle
+            val fragmentManager: FragmentManager = supportFragmentManager
+            myForgotPassword.show(fragmentManager, "fragment_edit_email")
+
+            /*val intent= Intent(this,ForgotPass::class.java)
             intent.putExtra("email", edit_login_email?.text.toString())
-            startActivity(intent)
+            startActivity(intent)*/
         }
     }
 
@@ -77,8 +82,5 @@ class LoginActivity : AppCompatActivity() {
             text_login_password!!.isErrorEnabled = false
         }
         return true
-    }
-
-    private fun forgotPassword() {
     }
 }

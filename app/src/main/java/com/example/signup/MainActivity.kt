@@ -2,13 +2,13 @@ package com.example.signup
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,15 +32,21 @@ class MainActivity : AppCompatActivity() {
     var check_check3: CheckBox? = null
     var check_check4: CheckBox? = null
 
+    var spinnerRunTime: Spinner? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        spinnerRunTime = Spinner(this)
         findID()
         fillAge()
         onDOB()
-        onLogin()
-        btnRegister?.setOnClickListener() {
+        btnRegister_login?.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        btnRegister?.setOnClickListener {
+
             if (!validationFname()) {
                 return@setOnClickListener
             }
@@ -56,6 +62,10 @@ class MainActivity : AppCompatActivity() {
             if (!validateCheckBox()) {
                 return@setOnClickListener
             }
+            if (spinnerRunTime!!.selectedItem.toString().trim() == "Select") {
+                Toast.makeText(this, " Please select your age ", Toast.LENGTH_SHORT).show();
+            }
+
             val intent = Intent(this, LoginActivity::class.java)
             intent.putExtra("email", edit_email?.text.toString())
             intent.putExtra("password", edit_pass?.text.toString())
@@ -129,10 +139,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun fillAge() {
         val agelist = resources.getStringArray(R.array.AgeList)
-        val spinnerRunTime = Spinner(this)
         //        val v:View=spinnerRunTime.selectedView
 
-        spinnerRunTime.layoutParams = LinearLayout.LayoutParams(
+        spinnerRunTime!!.layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -141,7 +150,8 @@ class MainActivity : AppCompatActivity() {
         linearLayout.addView(spinnerRunTime)
 
         val fill_age = ArrayAdapter(this, android.R.layout.simple_spinner_item, agelist)
-        spinnerRunTime.adapter = fill_age
+        spinnerRunTime!!.adapter = fill_age
+
     }
 
     fun radioButtonClick(view: View) {
@@ -177,34 +187,24 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun onLogin() {
-        btnRegister_login?.setOnClickListener() {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+    private fun onDOB() {
+        val dateListenerDialog =
+            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                updateDateInView()
+            }
+        date?.setOnClickListener {
+            DatePickerDialog(
+                this@MainActivity,
+                dateListenerDialog,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
     }
-
-    private fun onDOB() {
-            val dateListenerDialog = object : DatePickerDialog.OnDateSetListener {
-                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                    calendar.set(Calendar.YEAR, year)
-                    calendar.set(Calendar.MONTH, month)
-                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    updateDateInView()
-                }
-            }
-            date?.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(v: View?) {
-                    DatePickerDialog(
-                        this@MainActivity,
-                        dateListenerDialog,
-                        calendar.get(Calendar.YEAR),
-                        calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH)
-                    ).show()
-                }
-            })
-        }
 
     private fun updateDateInView() {
         val dateFormat = "dd/MM/yyyy"
