@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/application_background"
-    style="@style/AppTheme"
-    tools:context=".ForgotPass">
+    style="@style/AppTheme">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_email_forgot"
@@ -89,7 +88,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:onClick="btnForgot"
-            android:text="@string/lable_btn_login"
+            android:text="OK"
             android:textColor="#141414" />
     </LinearLayout>
 </RelativeLayout>

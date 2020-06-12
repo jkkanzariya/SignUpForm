@@ -45,18 +45,18 @@ class LoginActivity : AppCompatActivity() {
             alert.show()
         }
 
-        forgot_pass?.setOnClickListener {
-            val bundle=Bundle()
-            val myForgotPassword=MyFragment()
-            bundle.putString("email", edit_login_email?.text.toString())
-            myForgotPassword.arguments=bundle
-            val fragmentManager: FragmentManager = supportFragmentManager
-            myForgotPassword.show(fragmentManager, "fragment_edit_email")
-
+        forgot_pass?.setOnClickListener {loadForgotPassword(MyFragment())
             /*val intent= Intent(this,ForgotPass::class.java)
             intent.putExtra("email", edit_login_email?.text.toString())
             startActivity(intent)*/
         }
+    }
+    private fun loadForgotPassword(myForgotPassword: MyFragment){
+        val bundle=Bundle()
+        val fragmentManager: FragmentManager = supportFragmentManager
+        bundle.putString("email", edit_login_email?.text.toString())
+        myForgotPassword.arguments=bundle
+        myForgotPassword.show(fragmentManager, "fragment_edit_email")
     }
 
     private fun validationEmail(): Boolean {

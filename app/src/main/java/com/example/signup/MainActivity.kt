@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     var check_check2: CheckBox? = null
     var check_check3: CheckBox? = null
     var check_check4: CheckBox? = null
-
     var spinnerRunTime: Spinner? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,3 +1,4 @@
+/*
 package com.example.signup
 
 import android.app.AlertDialog
@@ -35,4 +36,4 @@ class ForgotPass : AppCompatActivity() {
             }
         }
     }
-}
+}*/
